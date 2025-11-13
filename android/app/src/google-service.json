@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "747425159711",
+    "project_id": "deepvoice-df6e5",
+    "storage_bucket": "deepvoice-df6e5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747425159711:android:75a12181756489235e932a",
+        "android_client_info": {
+          "package_name": "com.deepfake_detection_service_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWAJFtzKa-1yBLrV85jrVbcKb0FAbiE9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.deepfake_detection_service_application">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- 네트워크/오디오 권한 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -33,7 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <!-- ⚠️ PlaybackCaptureService 선언/권한은 Mic 방식에선 제거 -->
     </application>
 </manifest>

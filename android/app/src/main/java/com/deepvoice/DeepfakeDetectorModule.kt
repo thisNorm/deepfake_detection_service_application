@@ -207,7 +207,11 @@ class DeepfakeDetectorModule(private val reactCtx: ReactApplicationContext)
   }
 
   // ===== Utils =====
-  private fun sigmoid(x: Float): Float = (1f / (1f + kotlin.math.exp(-x)))
+  private fun sigmoid(x: Float): Float {
+    val xd = x.toDouble()
+    val y = 1.0 / (1.0 + kotlin.math.exp(-xd))
+    return y.toFloat()
+  }
 
   private fun toFloatArray256(arr: ReadableArray): FloatArray {
     require(arr.size() == 256) { "Embedding must be 256-D" }
@@ -312,7 +316,7 @@ class DeepfakeDetectorModule(private val reactCtx: ReactApplicationContext)
             while (i < tmp.size) {
               var sum = 0f
               for (c in 0 until ch) sum += (tmp.getOrNull(i + c)?.toFloat() ?: 0f)
-              val mono = (sum / ch) / 32768f
+              val mono = (sum / ch.toFloat()) / 32768f
               pcm.add(mono); i += ch
             }
           }
@@ -340,7 +344,7 @@ class DeepfakeDetectorModule(private val reactCtx: ReactApplicationContext)
       val i0 = kotlin.math.floor(pos).toInt().coerceIn(0, src.size - 1)
       val i1 = min(i0 + 1, src.size - 1)
       val frac = (pos - i0).toFloat()
-      out[i] = src[i0] * (1 - frac) + src[i1] * frac
+      out[i] = src[i0] * (1f - frac) + src[i1] * frac
     }
     return out
   }

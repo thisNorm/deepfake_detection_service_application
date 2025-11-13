@@ -29,31 +29,20 @@ try {
   DeviceInfo = require('react-native-device-info');
 } catch {}
 
-/** ===== (변경) Document Picker: @react-native-documents/picker 고정 사용 (안전 로더) ===== */
-import * as DocumentsPicker from '@react-native-documents/picker';
-
-function resolveDocPick() {
-  // 다양한 번들 형태 대응
-  if (typeof DocumentsPicker?.pick === 'function') return DocumentsPicker.pick;
-  if (typeof DocumentsPicker?.default?.pick === 'function') return DocumentsPicker.default.pick;
-  if (typeof DocumentsPicker?.default === 'function') return DocumentsPicker.default; // default가 곧 pick
-  return null;
-}
+/** ===== (변경) Document Picker: react-native-document-picker v9 고정 사용 (안전 로더) ===== */
+import DocumentPicker, { types, isInProgress } from 'react-native-document-picker';
 
 async function pickOneFile(opts = {}) {
-  const pickFn = resolveDocPick();
-  if (!pickFn) {
-    Alert.alert('문서 선택기 오류', '@react-native-documents/picker의 pick()을 찾을 수 없습니다.');
-    throw new Error('No pick() export from @react-native-documents/picker');
-  }
   try {
-    // @react-native-documents/picker 는 **배열**을 반환
-    const res = await pickFn({ mode: 'import', ...opts });
-    if (!Array.isArray(res) || res.length === 0) return null;
-    return res[0]; // { uri, name, mimeType, size, ... }
+    const res = await DocumentPicker.pick({
+      allowMultiSelection: false,
+      type: [types.audio, types.plainText],
+      ...opts,
+    });
+    const file = Array.isArray(res) ? res[0] : res;
+    return file || null; // { uri, name, type, size, fileCopyUri? }
   } catch (e) {
-    const msg = String(e?.message || e || '').toLowerCase();
-    if (msg.includes('cancel')) return null; // 사용자 취소
+    if (DocumentPicker.isCancel(e) || isInProgress?.(e)) return null;
     Alert.alert('문서 선택기 오류', '파일을 선택하는 중 문제가 발생했습니다.');
     throw e;
   }
@@ -422,8 +411,15 @@ const HomeScreen = ({ navigation }) => {
         return;
       }
 
+      // iOS/Android 경로 정규화
+      const srcUri = picked?.fileCopyUri || picked?.uri;
+      if (!srcUri) {
+        Alert.alert('오류', '선택한 파일의 경로를 확인할 수 없습니다.');
+        return;
+      }
+
       const cachedPath = `${RNFS.CachesDirectoryPath}/upload-${Date.now()}.wav`;
-      await RNFS.copyFile(picked.uri, cachedPath);
+      await RNFS.copyFile(srcUri, cachedPath);
       const fileUri = Platform.OS === 'android' ? `file://${cachedPath}` : cachedPath;
 
       // 파일 시스템에서 크기 재확인
@@ -485,7 +481,7 @@ const HomeScreen = ({ navigation }) => {
           inferMs: typeof inferMs === 'number' ? Math.round(inferMs) : null,
           bytesKB: typeof bytesKB === 'number' ? Math.round(bytesKB) : null,
           energy_mJ: typeof energy_mJ === 'number' ? Math.round(energy_mJ) : null,
-          usedMemMB: null, // 폴링 타이밍상 바로 못 읽을 수 있어 null 허용
+          usedMemMB: null,
           accuracy, f1, recall,
           verdict: shot?.verdict?.key ?? null,
         },

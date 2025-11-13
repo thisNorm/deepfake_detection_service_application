@@ -1,34 +1,45 @@
+// android/build.gradle
 buildscript {
   ext {
-    buildToolsVersion = "35.0.0"
-    minSdkVersion = 24
     compileSdkVersion = 35
-    targetSdkVersion = 35
-    ndkVersion = "27.1.12297006"
-    kotlinVersion = "1.9.24"  // AGP 8.8와 호환
+    targetSdkVersion  = 35
+    minSdkVersion     = 24
+    kotlin_version    = '1.9.24'
   }
   repositories {
     google()
     mavenCentral()
-    // ↓ Groovy 문법으로 통일 (필요 없으면 주석/삭제 가능)
-    // maven { url 'https://mvn.0110.be/releases' }   // TarsosDSP
-    // maven { url 'https://jitpack.io' }
   }
   dependencies {
-    classpath("com.android.tools.build:gradle:8.8.0")
-    classpath("com.facebook.react:react-native-gradle-plugin")
-    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+    classpath "com.android.tools.build:gradle:8.8.0"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
+    classpath "com.google.gms:google-services:4.4.4"
+    // ❌ (삭제) com.facebook.react:react-native-gradle-plugin
   }
 }
 
 allprojects {
   repositories {
-    mavenCentral()
     google()
-    // ↓ 필요 시에만 유지
-    // maven { url 'https://mvn.0110.be/releases' }   // TarsosDSP
-    // maven { url 'https://jitpack.io' }
+    mavenCentral()
+    maven { url("$rootDir/../node_modules/react-native/android") }
+    maven { url("$rootDir/../node_modules/jsc-android/dist") }
+    maven { url("https://jitpack.io") }
+  }
+  configurations.all { cfg ->
+    cfg.exclude group: "com.facebook.fbjni", module: "fbjni-java-only"
   }
 }
 
-apply plugin: "com.facebook.react.rootproject"
+subprojects { project ->
+  plugins.withId('com.android.library') {
+    android {
+      compileSdk rootProject.ext.compileSdkVersion as Integer
+      defaultConfig {
+        minSdk    rootProject.ext.minSdkVersion as Integer
+        targetSdk rootProject.ext.targetSdkVersion as Integer
+      }
+      buildFeatures { prefab true }
+    }
+  }
+}

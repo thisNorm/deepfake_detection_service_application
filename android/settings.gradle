@@ -1,6 +1,19 @@
-pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
-plugins { id("com.facebook.react.settings") }
-extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
-rootProject.name = 'deepfake_detection_service_application'
-include ':app'
-includeBuild('../node_modules/@react-native/gradle-plugin')
+// android/settings.gradle
+
+pluginManagement {
+  includeBuild("../node_modules/@react-native/gradle-plugin")
+  repositories {
+    gradlePluginPortal()
+    mavenCentral()
+    google()
+    maven { url("$rootDir/../node_modules/react-native/android") }
+  }
+}
+
+plugins {
+  id "com.facebook.react.settings"       // ✅ RN settings plugin
+  id "de.undercouch.download" version "5.6.0" apply false
+}
+
+rootProject.name = "deepfake_detection_service_application"
+include(":app")

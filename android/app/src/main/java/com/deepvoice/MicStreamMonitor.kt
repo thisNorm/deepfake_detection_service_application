@@ -180,7 +180,11 @@ class MicStreamMonitor(
     }
   }
 
-  private fun sigmoid(x: Float): Float = (1f / (1f + exp(-x)))
+  private fun sigmoid(x: Float): Float {
+    val xd = x.toDouble()
+    val y = 1.0 / (1.0 + kotlin.math.exp(-xd))
+    return y.toFloat()
+  }
 
   /**
    * 방법 A: 시암 출력(zF, zR) → margin=(zF-zR)*LOGIT_SCALE → sigmoid → 확률 pFake

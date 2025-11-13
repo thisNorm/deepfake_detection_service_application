@@ -1,0 +1,28 @@
+diff --git a/node_modules/@react-native-async-storage/async-storage/android/.project b/node_modules/@react-native-async-storage/async-storage/android/.project
+new file mode 100644
+index 0000000..bde57b5
+--- /dev/null
++++ b/node_modules/@react-native-async-storage/async-storage/android/.project
+@@ -0,0 +1,22 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<projectDescription>
++	<name>react-native-async-storage_async-storage</name>
++	<comment>Project react-native-async-storage_async-storage created by Buildship.</comment>
++	<projects>
++	</projects>
++	<buildSpec>
++	</buildSpec>
++	<natures>
++	</natures>
++	<filteredResources>
++		<filter>
++			<id>1761129537942</id>
++			<name></name>
++			<type>30</type>
++			<matcher>
++				<id>org.eclipse.core.resources.regexFilterMatcher</id>
++				<arguments>node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
++			</matcher>
++		</filter>
++	</filteredResources>
++</projectDescription>
