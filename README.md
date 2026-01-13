@@ -36,16 +36,16 @@ graph TD
     User[Mobile User] -->|Touch/Input| RN[React Native UI]
     
     subgraph "Mobile App (Android)"
-        RN -->|Bridge| Native[Native Module (Java/Kotlin)]
+        RN -->|Bridge| Native["Native Module (Java/Kotlin)"]
         Native -->|Load Model| PyTorch[PyTorch Mobile Lite]
-        Native -->|Audio Stream| Mic[Microphone / WebRTC Audio]
+        Native -->|Audio Stream| Mic["Microphone / WebRTC Audio"]
         
         PyTorch -->|Inference Result| Native
         Native -->|Event Emitter| RN
     end
     
     subgraph "Network"
-        RN -->|Socket.io / HTTP| Server[Backend Server (EC2)]
+        RN -->|Socket.io / HTTP| Server["Backend Server (EC2)"]
         RN -->|WebRTC P2P| Peer[Remote Peer]
     end
     
