@@ -26,7 +26,7 @@ npm start
 yarn start
 ```
 
-###2. Build and Run
+### 2. Build and Run
 새로운 터미널을 열고 앱을 에뮬레이터 또는 디바이스에 설치합니다.
 
 **Android**
