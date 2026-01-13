@@ -1,16 +1,24 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🛡️ DeepVoice Shield - Mobile App
 
-# Getting Started
+> **Deepfake Detection Service Application** > 온디바이스 AI 기반 딥보이스 탐지 모바일 애플리케이션
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
 
-## Step 1: Start Metro
+## 📌 Project Overview
+이 프로젝트는 **React Native**로 개발된 딥보이스 탐지 서비스 애플리케이션입니다.  
+사용자의 통화 또는 음성 녹음 파일을 분석하여 AI 기반으로 딥페이크 여부를 판별합니다.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🚀 Getting Started
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+> **Note**: 시작하기 전에 [React Native 개발 환경 설정](https://reactnative.dev/docs/set-up-your-environment)이 완료되어 있어야 합니다.
 
-```sh
+### 1. Start Metro
+Javascript 번들러인 Metro 서버를 실행합니다.
+
+```bash
 # Using npm
 npm start
 
@@ -18,80 +26,39 @@ npm start
 yarn start
 ```
 
-## Step 2: Build and run your app
+###2. Build and Run
+새로운 터미널을 열고 앱을 에뮬레이터 또는 디바이스에 설치합니다.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
+**굵게Android**
+```bash
 npm run android
-
-# OR using Yarn
+# OR
 yarn android
 ```
 
-### iOS
+## 🛠 Features
++ 실시간/파일 기반 딥보이스 탐지: 온디바이스 AI 모델 연동
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
++ 결과 리포트: 탐지 확률 및 위험도 시각화
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
++ 히스토리 관리: 검사 기록 저장 및 관리
 
-```sh
-bundle install
+## 📂 Project Structure
+```bash
+root
+├── src
+│   ├── components  # 재사용 가능한 UI 컴포넌트
+│   ├── screens     # 각 페이지 화면
+│   ├── navigation  # 네비게이션 설정
+│   └── services    # API 및 비즈니스 로직
+├── android         # Android 네이티브 코드
+├── ios             # iOS 네이티브 코드
+└── App.tsx         # 엔트리 포인트
 ```
 
-Then, and every time you update your native dependencies, run:
+## 🔗 Related Repositories
++ Backend: [deepfake_detection_service_backend](https://github.com/thisNorm/deepfake_detection_service_backend.git)
 
-```sh
-bundle exec pod install
-```
++ Frontend (Landing): [deepfake_detection_service_frontend](https://github.com/thisNorm/deepfake_detection_service_frontend.git)
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
++ Algorithm: [deepfake_detection_service_algorithm](https://github.com/thisNorm/deepfake_detection_service_algorithm.git)
