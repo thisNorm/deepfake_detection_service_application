@@ -2228,10 +2228,10 @@
   resolved "https://registry.npmjs.org/@react-native-community/masked-view/-/masked-view-0.1.11.tgz"
   integrity sha512-rQfMIGSR/1r/SyN87+VD8xHHzDYeHaJq6elOSCAD+0iLagXkSI2pfA0LmSXP21uw5i3em7GkkRjfJ8wpqWXZNw==
 
-"@react-native-documents/picker@^12.0.2":
-  version "12.0.2"
-  resolved "https://registry.yarnpkg.com/@react-native-documents/picker/-/picker-12.0.2.tgz#b0f7f615a27d7a7f2ba52c4e8b04a4eb7ab4a4b0"
-  integrity sha512-tiaPQjSdsaCkKw/N8XB+DXfhOJ+KJ1OYDliBGoBHEqLI7AhUsSPhn8fRI/gHs7hpYzqOBKf+em9MUrPIA9mlWA==
+"@react-native-documents/picker@^12.0.3":
+  version "12.0.3"
+  resolved "https://registry.yarnpkg.com/@react-native-documents/picker/-/picker-12.0.3.tgz#bf712b5466a285a3450061d5ad39d4018d62fdc0"
+  integrity sha512-uRSJkS8UKPwiaBUAyJGeDBMKaseKGbHqQb5PhUsrNFMA2/fV+JG5HBohtPhKiIhLaKDQ1vdpEGza0aDxrj49NA==
 
 "@react-native-picker/picker@^2.11.4":
   version "2.11.4"
@@ -4384,10 +4384,10 @@ eslint-visitor-keys@^5.0.0, eslint-visitor-keys@^5.0.1:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-5.0.1.tgz#9e3c9489697824d2d4ce3a8ad12628f91e9f59be"
   integrity sha512-tD40eHxA35h0PEIZNeIjkHoDR4YjjJp34biM0mDvplBe//mB+IHCqHDGV7pxF+7MklTvighcCPPZC7ynWyjdTA==
 
-eslint@^10.12.0:
-  version "10.12.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-10.12.0.tgz#4f2f7e679bdce9d71438c2900f2c8d4d297332b0"
-  integrity sha512-npHjrHb2o4ehH3mE+YuxABR+0gyb0aVWCIolgJDArwCiHEIsonBm3ZKjel5b0U5+a+MbEvIyRCGCzD3eKKK2NA==
+eslint@^10.13.0:
+  version "10.13.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-10.13.0.tgz#a8a4742648c0fa9131f429b509de5407682d4864"
+  integrity sha512-UohDjD4zSzEwhf58M3O7vc/ycc8O1I7dNlhtD0WxE8Px8EHNJKtUwzBqrzeGhisRuv2ag4sAYswszCJRgKXYUg==
   dependencies:
     "@eslint-community/eslint-utils" "^4.8.0"
     "@eslint-community/regexpp" "^4.12.2"
@@ -6921,10 +6921,10 @@ react-native-fs@^2.20.0:
     base-64 "^0.1.0"
     utf8 "^3.0.0"
 
-react-native-gesture-handler@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-3.3.0.tgz#58817e551bab57e514fb6784003222d7d7f5738f"
-  integrity sha512-ZCTlJ09nE3GPbm7J74lvwpxmx1TQ/7MDlHZNLARVYTN82k21mJUJ7BmI9eWjEi8eevHiAudI5O1Cpnt0rJfoJA==
+react-native-gesture-handler@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-3.4.0.tgz#aecac40bb2e468a14dad8cb58917cb6357cc66b6"
+  integrity sha512-jBg4ZWDvegeaZ4OHq9oxVOS/Qa6pV+LhtsUExothyhWxqzG0Lkg7kl2ztemPj/pnJxkq9j/+6wAw3jZGwdssww==
   dependencies:
     "@types/react-test-renderer" "^19.1.0"
     invariant "^2.2.4"
@@ -7007,10 +7007,10 @@ react-native-vector-icons@^10.2.0:
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-react-native-webrtc@^155.0.0:
-  version "155.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-webrtc/-/react-native-webrtc-155.0.0.tgz#bc746e949d6f0086fe70c90428192386c5ef700c"
-  integrity sha512-qA+rDkvn+/GWASN2t5JPDQevVMIZ3uBWaR3oJ1BeJ4A21pnp6SLZSTN3FEbaLGzpcfsmi57hnOZYY9MbHS1gHA==
+react-native-webrtc@^155.0.1:
+  version "155.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-webrtc/-/react-native-webrtc-155.0.1.tgz#d13f563a0587a6a1acee704f44cc2449bd2b1ad6"
+  integrity sha512-xQ71L3l1yE9o7H0VWupktdib08OXt5hnGspQYTSW1S3sYqXQHkYx8ZY9HNjw8o1FfBZuoFJ/ypGTUzky6YHnsQ==
   dependencies:
     base64-js "1.5.1"
     debug "4.3.4"
